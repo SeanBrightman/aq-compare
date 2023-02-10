@@ -1,4 +1,4 @@
-# Code Challenge Assignement
+# Code Challenge Assignment
 
 ## Question 1:
 https://github.com/SeanBrightman/aq-compare/tree/master/src
