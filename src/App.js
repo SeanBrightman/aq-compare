@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import CardHeader from "@mui/material/CardHeader";
+import Search from "./Components/Search";
 import CitySearch from "./Components/CitySearch";
 import CityMeasurements from "./Components/CityMeasurements";
 import DisplayParameters from "./Components/DisplayParameters";
@@ -16,7 +17,7 @@ function App() {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <h1>Compare U.S. City Air Quality</h1>
       </header>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} justifyContent="center">
         <Grid item xs={2}>
           <DisplayParameters />
         </Grid>

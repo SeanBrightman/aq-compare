@@ -1,33 +1,34 @@
-import axios from "axios";
+
 import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 
 import CityMeasurements from "./CityMeasurements";
 
-function CitySearch() {
+function CitySearch(props) {
   const [cityResults, setCityResults] = useState([]);
   const [selectedCity, setSelectedCity] = useState('');
 
   useEffect(() => {
+    //   fetch(
+    //           'https://api.openaq.org/v1/cities?limit=10000&page=1&offset=0&sort=asc&country=' + props.country + '&order_by=city'
+    //       )
+    //     .then((response) => response.json())
+    //     .then((json) => setCityResults(json.results));
+    // }, [props]);
+
     fetch(
-            'https://api.openaq.org/v1/cities?limit=10000&page=1&offset=0&sort=asc&country=US&order_by=city'
-        )
+      "https://api.openaq.org/v1/cities?limit=10000&page=1&offset=0&sort=asc&country=US&order_by=city"
+    )
       .then((response) => response.json())
-      .then((json) => setCityResults(json.results));
-  }, []);
+      .then((json) => setCityResults(json.results))
+      .catch((err) => console.error(err));
+  }, [props]);
 
   const searchChangeHandler = (event, value) => {
     setSelectedCity(value);
   }
-
-  const searchClickHandler = () => {
-    setSelectedCity(cityResults);
-  }
-  //console.log(cityResults);
 
   return (
     <Stack sx={{ width: 500, margin: "auto", align: "center" }}>
